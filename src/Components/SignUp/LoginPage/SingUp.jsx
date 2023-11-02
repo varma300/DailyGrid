@@ -21,13 +21,13 @@ let Login = () => {
             password: inputRef.password.current.value,
             re_passwod: inputRef.re_passwod.current.value
         }
-        let out = signup_datas.password === signup_datas.re_passwod ? 'Login' : 'Passwords are not matching';
+        let out = signup_datas.password === signup_datas.re_passwod ? 'SignIn' : 'Passwords are not matching';
         alert(out)
     }
     // (signup_datas.password===signup_datas.re_passwod) ? alert('congradulations') : alert('passwords are wrong')
     return (
         <>
-            <h3>Login Page</h3>
+            <h3>SingUp Page</h3>
             <form onSubmit={LoGin_Submit}>
                 <input type="text" placeholder="User Name" ref={inputRef.name} /><br></br><br />
                 <input type="email" placeholder="email id" ref={inputRef.email} /> <br /><br />
