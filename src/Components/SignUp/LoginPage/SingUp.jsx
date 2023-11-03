@@ -1,6 +1,11 @@
-import { useRef } from "react";
+import { useContext, useRef, useState } from "react";
+import Context from "../../Context/Context";
 
 let Login = () => {
+
+    let data = useContext(Context)
+   let {signup,setSignup} = data
+   let [signup_state, set_signup_state] =useState('')
 
     //adding useRef hook for reffering input to  a variable
     const inputRef = {
@@ -21,8 +26,13 @@ let Login = () => {
             password: inputRef.password.current.value,
             re_passwod: inputRef.re_passwod.current.value
         }
-        let out = signup_datas.password === signup_datas.re_passwod ? 'SignIn' : 'Passwords are not matching';
-        alert(out)
+        set_signup_state(signup_datas);
+        setSignup(signup_state)
+        // set_signup_state('') 
+
+        console.log(signup);
+        // let out = signup_datas.password === signup_datas.re_passwod ? 'SignIn' : 'Passwords are not matching';
+        // alert(out)
     }
     // (signup_datas.password===signup_datas.re_passwod) ? alert('congradulations') : alert('passwords are wrong')
     return (

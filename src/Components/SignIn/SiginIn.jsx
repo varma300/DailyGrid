@@ -1,6 +1,10 @@
-import { useRef } from "react"
+import { useContext, useRef } from "react"
+import Context from "../Context/Context";
 
 function SignIn(){
+let data = useContext(Context);
+let {signup, setSignup} = data
+
     let data_Ref = {
         name : useRef(null),
         password : useRef(null)
@@ -12,8 +16,8 @@ function SignIn(){
             name: data_Ref.name.current.value,
             password:data_Ref.password.current.value
         };
-        console.log(signIn_Data);
     }
+    console.log(signup);
     
     return (
         <>

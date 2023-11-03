@@ -3,14 +3,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './Components/Home/Home'
+import Context from './Components/Context/Context'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] = useState(0);
+const [signup, setSignup] = useState('');
+const datas = {
+      signup:signup,
+      setSignup: setSignup
+}
   return (
-    <>
-      <Home />
-    </>
+    <Context.Provider value={datas}>
+      <Home/>
+    </Context.Provider>
   )
 }
 
