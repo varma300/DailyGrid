@@ -1,11 +1,14 @@
 import { useContext, useRef, useState } from "react";
 import Context from "../../Context/Context";
+import { useNavigate } from "react-router-dom";
 
 let Login = () => {
 
     let data = useContext(Context)
    let {signup,setSignup} = data
-   let [signup_state, set_signup_state] =useState('')
+   let [signup_state, set_signup_state] =useState('');
+   const navigate = useNavigate()
+   const isLoggedIn = false;
 
     //adding useRef hook for reffering input to  a variable
     const inputRef = {
@@ -26,15 +29,13 @@ let Login = () => {
             password: inputRef.password.current.value,
             re_passwod: inputRef.re_passwod.current.value
         }
-        set_signup_state(signup_datas);
-        setSignup(signup_state)
+        // set_signup_state(signup_datas);
+        setSignup(signup_datas)
         // set_signup_state('') 
 
-        console.log(signup);
-        // let out = signup_datas.password === signup_datas.re_passwod ? 'SignIn' : 'Passwords are not matching';
-        // alert(out)
+        console.log(signup.password);
+        signup_datas.password === signup_datas.re_passwod ? navigate('/signin') : alert('Passwords are not matching')
     }
-    // (signup_datas.password===signup_datas.re_passwod) ? alert('congradulations') : alert('passwords are wrong')
     return (
         <>
             <h3>SingUp Page</h3>
