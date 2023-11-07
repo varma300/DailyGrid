@@ -17,10 +17,10 @@ let {signup, setSignup} = data
             signin_name: data_Ref.signin_name.current.value,
             signin_password:data_Ref.signin_password.current.value
         };
-        let out = (signup.password  === signIn_Data.signin_password ) ? 'log to calender  ': 'user name and password not matching';
+        let out = (signup.password  === signIn_Data.signin_password ) ? `welcome ${signup.name}`: 'user name and password not matching';
         alert(out)
 
-        console.log(signup.password );
+        console.log(signup.name );
     }
     
     return (
