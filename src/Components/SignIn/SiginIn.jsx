@@ -1,10 +1,11 @@
 import { useContext, useRef } from "react"
 import Context from "../Context/Context";
+import { useNavigate } from "react-router-dom";
 
 function SignIn(){
 let data = useContext(Context);
 let {signup, setSignup} = data
-
+let heroNavigate = useNavigate()
 // let {name, password} = signup
     let data_Ref = {
         signin_name : useRef(null),
@@ -17,8 +18,7 @@ let {signup, setSignup} = data
             signin_name: data_Ref.signin_name.current.value,
             signin_password:data_Ref.signin_password.current.value
         };
-        let out = (signup.password  === signIn_Data.signin_password ) ? `welcome ${signup.name}`: 'user name and password not matching';
-        alert(out)
+        (signup.password  === signIn_Data.signin_password ) ? heroNavigate('/hero'): alert('user name and password not matching, please signup ');
 
         console.log(signup.name );
     }
